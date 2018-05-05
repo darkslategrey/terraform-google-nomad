@@ -5,7 +5,7 @@
         "zone": "europe-west4-a",
         "nomad_version": "0.8.3",
         "consul_module_version": "v0.0.1",
-        "consul_version": "1.0.7-dev"
+        "consul_version": "0.9.3"
     },
     "builders": [{
         "type": "googlecompute",
