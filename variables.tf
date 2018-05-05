@@ -10,12 +10,12 @@ variable "gcp_project" {
 
 variable "gcp_region" {
   description = "The region in which all GCP resources will be launched."
-  default = "europe-west1"
+  default = "europe-west4"
 }
 
 variable "gcp_zone" {
   description = "The region in which all GCP resources will be launched."
-  default "b"
+  default = "a"
 }
 
 # Nomad Server cluster
@@ -27,7 +27,7 @@ variable "nomad_consul_server_cluster_name" {
 
 variable "nomad_consul_server_source_image" {
   description = "The Google Image used to launch each node in the Nomad/Consul Server cluster."
-  default = "nomad-server-image"
+  default = "nomad-consul-5058-32-32-063032"
 }
 
 # Nomad Client cluster
@@ -39,7 +39,7 @@ variable "nomad_client_cluster_name" {
 
 variable "nomad_client_source_image" {
   description = "The Google Image used to launch each node in the Nomad client cluster."
-  default = "nomad-client-image"
+  default = "nomad-consul-5058-32-32-063032"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
