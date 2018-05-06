@@ -5,26 +5,32 @@
 
 variable "gcp_zone" {
   description = "All GCP resources will be launched in this Zone."
+  default = "europe-west4-a"
 }
 
 variable "cluster_name" {
   description = "The name of the Nomad cluster (e.g. nomad-stage). This variable is used to namespace all resources created by this module."
+  # default = "nomad-server-prod"
 }
 
 variable "cluster_tag_name" {
   description = "The tag name the Compute Instances will look for to automatically discover each other and form a cluster. TIP: If running more than one Nomad cluster, each cluster should have its own unique tag name."
+  # default = "nomad-server-prod"
 }
 
 variable "machine_type" {
   description = "The machine type of the Compute Instance to run for each node in the cluster (e.g. n1-standard-1)."
+  default = "n1-standard-1"
 }
 
 variable "cluster_size" {
   description = "The number of nodes to have in the Nomad cluster. We strongly recommended that you use either 3 or 5."
+  default = 3
 }
 
 variable "source_image" {
   description = "The source image used to create the boot disk for a Vault node. Only images based on Ubuntu 16.04 LTS are supported at this time."
+  default = "nomad-consul-6058-07-07-052007"
 }
 
 variable "startup_script" {
