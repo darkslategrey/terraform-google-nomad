@@ -2,17 +2,23 @@
 # REQUIRED PARAMETERS
 # You must provide a value for each of these parameters.
 # ---------------------------------------------------------------------------------------------------------------------
-
+# variable "assign_public_ip_address" {
+#   description = "Note that public access to your Nomad cluster will only be permitted if var.assign_public_ip_addresses is true."
+#   default = "true"
+# }
 variable "gcp_zone" {
   description = "All GCP resources will be launched in this Zone."
+  default = "europe-west4"
 }
 
 variable "cluster_name" {
   description = "The name of the Nomad cluster (e.g. nomad-stage). This variable is used to namespace all resources created by this module."
+  default = "nomad-staging"
 }
 
 variable "cluster_tag_name" {
   description = "The tag name the Compute Instances will look for to automatically discover each other and form a cluster. TIP: If running more than one Nomad cluster, each cluster should have its own unique tag name."
+  default = "nomad-staging"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -69,11 +75,11 @@ variable "allowed_inbound_tags_rpc" {
 variable "allowed_inbound_cidr_blocks_serf" {
   description = "A list of CIDR-formatted IP address ranges from which the Compute Instances will allow connections to Nomad on the port specified by var.serf_port."
   type = "list"
-  default = []
+  default = ["0.0.0.0/0"]
 }
 
 variable "allowed_inbound_tags_serf" {
   description = "A list of tags from which the Compute Instances will allow connections to Nomad on the port specified by var.serf_port."
   type = "list"
-  default = []
+  default = ["nomad-server-prod"]
 }
